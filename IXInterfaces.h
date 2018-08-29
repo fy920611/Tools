@@ -33,8 +33,7 @@
 #include <utility>
 #include <list>
 #include <algorithm>
-#include <LockHelper.h>
-#include <scassert.h>
+#include "LockHelper.h"
 #include <io.h>
 
 #ifndef verify
@@ -531,7 +530,7 @@ struct MemLeakHelper
                 OutputDebugStringA("memory leak output finished!\n");
 				if(_access("debug_mode", 0) != -1)
 				{
-					_Assert(0 && _T("检测到内存泄漏，请截取此时的dump"));
+					assert(0 && _T("检测到内存泄漏，请截取此时的dump"));
 				}
             }
         }
